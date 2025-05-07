@@ -1,10 +1,13 @@
 import { toast } from "sonner";
 import { Chore, Expense, Household, Settlement } from "@/types";
 
-const API_URL = "http://localhost:5000/api";
+// const API_URL = "http://localhost:5000/api";
+
+const API_URL = "https://rentedbe.onrender.com/api";
 
 // Helper function to handle API errors
 const handleError = (error: any) => {
+  
   console.error("API Error:", error);
   const errorMessage = error.response?.data?.message || error.message || "An unexpected error occurred";
   toast.error(errorMessage);
