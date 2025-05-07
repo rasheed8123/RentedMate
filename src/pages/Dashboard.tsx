@@ -27,15 +27,15 @@ const Dashboard = () => {
       try {
         // Fetch upcoming chores
         const chores = await api.chores.getAll(household._id);
-        setUpcomingChores(chores.slice(0, 3));
+        setUpcomingChores(chores?.data.slice(0, 3));
         
         // Fetch recent expenses
         const expenses = await api.expenses.getAll(household._id);
-        setRecentExpenses(expenses.slice(0, 3));
+        setRecentExpenses(expenses?.data.slice(0, 3));
         
         // Fetch balances
         const balanceData = await api.expenses.getBalances(household._id);
-        setBalances(balanceData);
+        setBalances(balanceData?.data);
       } catch (error) {
         toast.error("Failed to load dashboard data");
       } finally {

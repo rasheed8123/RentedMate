@@ -37,7 +37,7 @@ export const HouseholdProvider = ({ children }: { children: ReactNode }) => {
       setIsLoading(true);
       try {
         const householdData = await householdAPI.getHousehold();
-        
+        console.log("householdData",householdData)
         setHousehold(householdData?.data);
         
         if (householdData) {
@@ -97,7 +97,7 @@ export const HouseholdProvider = ({ children }: { children: ReactNode }) => {
     setIsLoading(true);
     try {
       const refreshedHousehold = await householdAPI.getHousehold();
-      setHousehold(refreshedHousehold);
+      setHousehold(refreshedHousehold?.data);
       
       const membersData = await householdAPI.getMembers(refreshedHousehold?.data?._id);
       setMembers(membersData?.data);
